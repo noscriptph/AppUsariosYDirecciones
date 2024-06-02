@@ -24,10 +24,9 @@ import com.example.useraddreessbdbootcamp.views.addresslist.AddressActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModelUser: UserViewModel
+    private var userId: Long = -1L
     private lateinit var viewModelAddress: AddressViewModel
     private var addressId: Long = -1L
-    private var userId: Long = -1L
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         val factory = UserViewModelFactory(application, repository)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val adapter = UserListAdapter { user -> onUserClick(user) }
+
 
         viewModelUser = ViewModelProvider(this, factory)[UserViewModel::class.java]
         recyclerView.adapter = adapter
