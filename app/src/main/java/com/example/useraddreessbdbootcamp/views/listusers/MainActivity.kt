@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //menu que aparece en pantalla cuando se hace click en un usuario
-    private fun onUserClick(user: User) {
+    private fun onUserClick(user: User, address: Address) {
         val optionsMenu = arrayOf(
             "Ver Direcciones",
             "Editar Direcciones",
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             .setItems(optionsMenu) { dialog, selected ->
                 when (selected) {
                     0 -> viewAddresses(user)
-                    1 -> editAddress()
+                    1 -> editAddress(address)
                     2 -> showUpdateUser(user)
                     3 -> showDeleteUser(user)
 
